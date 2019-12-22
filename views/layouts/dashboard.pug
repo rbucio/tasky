@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+
+        link(rel="stylesheet", href="/css/main.css")
+        link(rel="stylesheet", href="/css/icofont.css")
+
+        block title
+    body
+        header.header 
+            .header_logo 
+                img(src="/images/profile.png" class="header_logo_img")
+                h2.header_logo_title Tasky
+            .header_profile 
+                //- img(src="/images/profile-1.png" class="header_profile_img")
+                span.header_profile_name Welcome, #{user.email}
+                .header_profile_menu
+                    a(href="/dashboard" class="header_profile_menu_link") Dashboard
+                    a(href="/dashboard/user/logout" class="header_profile_menu_link") Logout
+                    
+
+        main.content
+            .content_box
+                block content
+
+        script(src="https://unpkg.com/sweetalert/dist/sweetalert.min.js")
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js")
+        script(src="/scripts/app.js")
+

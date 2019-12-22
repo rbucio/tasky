@@ -1,0 +1,28 @@
+.close {
+    display: none;
+}
+
+.top-left-radius {
+    border-top-left-radius: 5px;
+}
+.top-right-radius {
+    border-top-right-radius: 5px;
+}
+.bottom-left-radius {
+    border-bottom-left-radius: 5px;
+}
+.bottom-right-radius {
+    border-bottom-right-radius: 5px;
+}
+
+.flex-1 {
+    flex-grow: 1;
+}
+
+.center {
+    text-align: center;
+}
+
+.white {
+    background-color: $white;
+}

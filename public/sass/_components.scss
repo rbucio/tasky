@@ -1,0 +1,194 @@
+// 
+// BUTTONS
+//
+.btn {
+    background-color: $light-purple;
+    color: $white;
+    padding: 1rem 2rem;
+    border-radius: 3px;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    font-weight: 600;
+    border:none;
+    transition: all .1s;
+
+    &:hover {
+        background-color: $dark-purple;
+    };
+
+    &_gray,
+    &_delete,
+    &_back {
+        display: inline-block;
+        padding: .5rem 1rem;
+        background-color: #f2f2f2;
+        color: $light-gray;
+        border-radius: 3px;
+        text-decoration: none;
+        font-weight: 900;
+        text-transform: uppercase;
+        transition: all .1s;
+        font-size: 1rem;
+    }
+
+    &_back {
+        margin-bottom: 2rem;
+    }
+
+    &_gray:hover,
+    &_delete:hover,
+    &_back:hover {
+        background-color: $gray;
+        color: $light-gray;
+    }
+    
+    
+}
+
+// 
+// WARNING MODAL WINDOW 
+//
+.swal-footer {
+    text-align: center;
+}
+.swal-button--danger {
+    background-color: $light-red;
+    border-bottom: 3px solid $dark-red;
+}
+.swal-button--cancel {
+    background-color: #f2f2f2;
+    border-bottom: 3px solid $medium-gray;
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+// 
+// FORMS 
+// 
+
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    &_label {
+        font-size: 1.7rem;
+        font-weight: 700;
+        text-transform: capitalize;
+        display: inline-block;
+        color: $heading;
+        margin-right: 1rem;
+        padding: 0 1rem;
+    }
+
+    &_input {
+        width: 100%;
+        padding: .8rem 2rem .6rem 2rem;
+        font-size: 1.5rem;
+        border-radius: 3px;
+        background-color: $body-bg;
+        border: none;
+        border-bottom: 2px solid $medium-gray;
+        color: $text;
+        letter-spacing: 1px;
+        font-weight: 300;
+        &:focus {
+            outline: none;
+            color: $light-gray;
+        }
+    }
+
+    .btn {
+        margin-left: 2rem;
+    }
+    
+}
+// 
+// ERROR MESSAGE
+// 
+.error_msg {
+    padding: 1.5rem 3rem;
+    background-image: linear-gradient(to right, red,rgb(250, 56, 56));
+    color: #fff;
+    position: absolute;
+    border-radius: 3px;
+    top: 9rem;
+    right: 3rem;
+    font-size: 1.4rem;
+    z-index: 4;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+
+    td {
+        padding: 1.5rem 2rem;
+    }
+
+    &_head {
+        background-color: $light-purple;
+        color: $white;
+        font-size: 1.6rem;
+        font-weight: 800;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+        border-bottom: 4px solid $dark-purple;
+    }
+
+    &_body {
+        font-size: 1.5rem;
+        text-transform: capitalize;
+        font-weight: 600;
+        tr:nth-child(even) {
+            background-color: $body-bg;
+        }
+        tr:nth-child(odd) {
+            background-color: $medium-gray;
+        }
+        tr td:last-child {
+            text-align: right;
+        }
+    }
+
+    .btn {
+        font-size: .8rem;
+        font-weight: 900;
+        background-color: $white;
+        color: $text;
+        text-transform: uppercase;
+        padding: .8rem;
+    }
+
+    .check {
+        position: relative;
+    
+        &_task {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 1.2rem;
+            left: 2.5rem;
+            background-color: $white;
+            border: 2px solid $text;
+            &:hover {
+                cursor: pointer;
+            }
+    
+            i {
+                font-size: 2.2rem;
+                font-weight: bold;
+                color: $white;
+            }
+        }
+    
+        .task_complete {
+            color: rgb(76, 255, 147);
+        }
+    }
+}

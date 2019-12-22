@@ -1,0 +1,20 @@
+extends ../layouts/dashboard
+
+include ../mixins/projects_form
+
+block title
+    title Dashboard | Edit Project
+
+block content
+
+    if errors
+        each error in errors 
+            .error_msg
+                p=error.msg
+    div 
+        a(href=`/dashboard/project/${project.id}` class="btn btn_gray") Go back
+            
+    .content_header 
+        h1.content_header_title=project.project_name
+
+    +project_form(`/dashboard/project/${project.id}`, project)

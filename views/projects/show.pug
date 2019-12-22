@@ -1,0 +1,85 @@
+extends ../layouts/dashboard 
+
+block title
+    title Dashboard | Single Project
+
+block content
+    div 
+        a(href="/dashboard" class="btn btn_gray") Go back
+            
+    .content_header 
+        h1.content_header_title=project.project_name
+        .content_header_actions
+            a(href=`/dashboard/project/${project.id}/edit` class="btn btn_gray") Edit
+            a(href='#' class="btn btn_gray" id="delete" data-project-id=project.id) Delete
+            
+    .task_form_box
+        form(action=`/dashboard/project/${project.id}/task` method="post" class="form")
+                div
+                    label(class="form_label") enter a task
+                .flex-1 
+                    input(
+                        type="text" 
+                        name="task_name" 
+                        class="form_input") 
+                div
+                    button(
+                        type="submit" 
+                        class="btn" 
+                    ) Add task
+     
+    if tasks.length 
+        .task_list
+            table.table
+                thead.table_head
+                    tr
+                        td.top-left-radius task
+                        td status
+                        td.top-right-radius
+                tbody.table_body
+                    each task, index in tasks 
+                        if index === tasks.length - 1
+                            tr
+                                td.bottom-left-radius=task.task 
+                                td.check
+                                    .check_task
+                                        i(
+                                            class=`icofont-check ${task.status ? 'task_complete' : ''}` data-task-id=task.id
+                                            data-project-id=project.id
+                                        )
+                                td.bottom-right-radius
+                                    a(
+                                        href="#" 
+                                        class='btn delete_task' 
+                                        data-task-id=task.id
+                                        data-project-id=project.id
+                                    ) remove
+                        else 
+                            tr
+                                td=task.task 
+                                td.check
+                                    .check_task
+                                        i(
+                                            class=`icofont-check ${task.status ? 'task_complete' : ''}` data-task-id=task.id
+                                            data-project-id=project.id
+                                        )
+                                td
+                                    a(
+                                        href="#" 
+                                        class='btn delete_task' 
+                                        data-task-id=task.id
+                                        data-project-id=project.id
+                                    ) remove
+        .progress
+            .progress_percent
+                span.progress_percent_title progress...
+                span.progress_percent_number 0%
+            .progress_box
+                .progress_bar
+    else 
+        .tasks_msg 
+            p no tasks yet
+
+     
+            
+        

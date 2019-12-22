@@ -1,0 +1,22 @@
+extends ../layouts/dashboard
+
+include ../mixins/projects_form
+
+block title
+    title Dashboard | New Project
+
+block content
+
+    if errors
+        each error in errors 
+            .error_msg
+                p=error.msg
+
+    div 
+        a(href='/dashboard' class="btn btn_gray") Go back
+            
+    .content_header 
+        h1.content_header_title create a new project
+
+    +project_form('/dashboard/new-project')
+        

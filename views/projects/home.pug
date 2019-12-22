@@ -1,0 +1,50 @@
+extends ../layouts/dashboard
+
+block title
+    title Dashboard
+
+block content
+    .content_header 
+        h1.content_header_title Dashboard
+        .content_header_actions 
+            a(href="/dashboard/new-project" class="btn") New project
+    .status
+        if projects.length
+            table.table
+                thead.table_head
+                    tr
+                        td.top-left-radius Project name 
+                        td.center Tasks 
+                        td.center Completed Task
+                        td.center Prgress
+                        td.top-right-radius
+                tbody.table_body 
+                    each project, index in projects
+                        if index === projects.length - 1
+                            tr 
+                                td.bottom-left-radius=project.project_name
+                                td.center=project.tasks
+                                td.center=project.completedTasks
+                                td.center #{project.progress}%
+                                td.bottom-right-radius
+                                    a(
+                                        href=`/dashboard/project/${project.id}`
+                                        class="btn"    
+                                    ) View project
+                        else
+                            tr
+                                td=project.project_name 
+                                td.center=project.tasks
+                                td.center=project.completedTasks
+                                td.center.center #{project.progress}%
+                                td
+                                    a(
+                                        href=`/dashboard/project/${project.id}`
+                                        class="btn"
+                                    ) View project
+        else   
+            .tasks_msg 
+                p no proyects yet
+
+
+

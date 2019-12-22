@@ -1,0 +1,20 @@
+mixin project_form(route, project={})
+    form(
+        action=route, 
+        method="post" 
+        class="form"
+        autocomplete="off")
+        div
+            label(class="form_label") Name 
+        .flex-1
+            input(
+                type="text" 
+                name="project_name" 
+                class="form_input"
+                value=project.project_name
+                autocomplete="off") 
+        div
+            button(
+                type="submit" 
+                class="btn" 
+                )=project.project_name ? 'Update': 'Create'
